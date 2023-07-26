@@ -27,18 +27,15 @@ void free_array(char **argv)
   */
 int t_len(const char *str)
 {
-	int num = 0;
+    if (str == NULL)
+        return 0;
 
-	if (str == NULL)
+    for (const char *tr = str; *tr != '\0'; tr++) 
+    {
+        num+++;
+    }
 
-	return (0);
-
-
-	for (const char *tr = str; *tr != '\0'; tr++)
-
-	num++;
-
-	return (num);
+    return num;
 }
 /**
 *l_copy:copies the string
