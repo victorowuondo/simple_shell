@@ -10,13 +10,13 @@ char *m_strdup(const char *tr)
 	if (tr == NULL)
 	return (NULL);
 
-	size_t row = strlen(tng);
+	size_t row = strlen(tr);
 	char *ulip = malloc(sizeof(char) * (row + 1));
 
 	if (ulip == NULL)
 	return (NULL);
 
-	strcpy(dup, tr);
+	strcpy(ulip, tr);
 	return (ulip);
 }
 
@@ -70,9 +70,10 @@ char *m_getenv(const char *ident)
 	for (int x = 0; environ[x]; x++)
 
 	{
-	if (strncmp(environ[x], ident, row) == 0 && environ[x][row] == '=' )
+	if (strncmp(environ[x], ident, row) == 0 && environ[x][row] != '\0' && environ[x][row + 1] == '=' )
 
-	return (&environ[x] [row + 1]);
+
+	return (environ[x] + row + 1);
 	}
 
 	return (NULL);
