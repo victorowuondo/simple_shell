@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef SHELL_H
+#define SHELL_H
 
 
 #include <sys/types.h>
@@ -22,6 +22,7 @@
 	void free_array(char **argv);
 	void *receive_argv(char *agc,int *argv);
 	int t_len(const char *str);
+	char **tokenization(char *take_user_input, char **argv, ssize_t fd_check);
 	void l_copy(char *t, const char *fr);
 	int handle_env_command(char *args);
 	void p_cat(char *txt_ad, const char *txt);
