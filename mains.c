@@ -8,12 +8,11 @@
  */
 int main(int ac, char **argv)
 {
+	extern char **environ;
 	char *user_input, **receive_argv;
 	data_shell shell_data;
 	int x, execution_status = 0;
 	ssize_t fd_check;
-
-	shell_data_environ = environ;
 
 	(void)argv;
 	(void)ac;
@@ -21,13 +20,11 @@ int main(int ac, char **argv)
 	while (1)
 	{
 
-	executers_input = NULL;
-	fd_check = 0;
+	char *executers_input = NULL;
+	ssize_t fd_check;
 	executers_input = prompts_read(&fd_check);
 
-
-	receive_argv = tokenization(executers_input, receive_argv, fd_check);
-
+	char **tokenization(char *executers_input, char **receive_argv, ssize_t fd_check);
 
 	if (receive_argv[0] == NULL)
 	{
@@ -46,7 +43,7 @@ int main(int ac, char **argv)
 	}
 	if (d_strcmp(receive_argv[0], "exit") == 0)
 	{
-	free(user_input);
+	free(executers_input);
 	exits_shell(receive_argv, execution_status);
 	free_array(receive_argv);
 	continue;
