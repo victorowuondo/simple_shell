@@ -21,7 +21,7 @@ void free_array(char **argv)
 
 	 free(argv);
 }
-i/**
+/**
 *t_row: takes for the length.
 *return:number.
   */
