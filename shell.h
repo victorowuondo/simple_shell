@@ -38,7 +38,7 @@
 	void exits_shell(char **input_argv, int execution_status);
 	int a_atoi(char *m);
 	char *b_strchr(char *x, char y);
-	int execute_command(char *receive_argv);
+	int execute_command(char **receive_argv);
 	int c_strcspn(char *x, char *charset);
 	int d_strcmp(char *x, char *y);
 

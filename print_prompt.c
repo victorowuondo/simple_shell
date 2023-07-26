@@ -32,6 +32,8 @@ char *prompts_read(ssize_t *fd_check)
 	free(client_input);
 	return (prompts_read(fd_check));
 	}
-	executers_input; c_strcspn(executers_input, "\n"); '\0';
+	size_t newline_pos = strcspn(client_input, "\n");
+	client_input[newline_pos] = '\0';
+
 	return (executers_input);
 }
