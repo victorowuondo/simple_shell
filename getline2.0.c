@@ -26,14 +26,16 @@ void free_array(char **argv)
 int t_len(const char *str)
 {
 	if (str == NULL)
-	return 0;
+
+	return (0);
 
 	int num = 0;
 
 	for (const char *tr = stdin; *tr != '\0'; tr++)
+
 	num++;
 
-	return num;
+	return (num0);
 }
 /**
 *l_copy:copies the string
@@ -42,7 +44,8 @@ int t_len(const char *str)
 void l_copy(char *t, const char *fr)
 {
 	if (t == NULL || fr == NULL)
-        return;
+
+	return;
 
 	strcpy(t, fr);
 }
@@ -59,11 +62,11 @@ void p_cat(char *txt_ad, const char *txt)
 	int x = 0;
 
 	while (txt[x] != '\0')
-    {
+	{
 	txt_ad[row_txt_ad + x] = txt[x];
 	x++;
 }
 
-    txt_ad[row_txt_ad + x] = '\0';
+	txt_ad[row_txt_ad + x] = '\0';
 }
 

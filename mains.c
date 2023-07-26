@@ -16,7 +16,7 @@ int main(int ac, char **argv)
 	shell_data_environ = environ;
 
 	(void)argv;
-	(void)ac; 
+	(void)ac;
 
 	while (1)
 	{

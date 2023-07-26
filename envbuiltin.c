@@ -8,15 +8,16 @@
 char *m_strdup(const char *tr)
 {
 	if (tng == NULL)
-	return NULL;
-	
+	return (NULL);
+
 	size_t row = strlen(tng);
 	char *ulip = malloc(sizeof(char) * (row + 1));
+
 	if (ulip == NULL)
-	return NULL;
+	return (NULL);
 
 	strcpy(dup, tng);
-	return ulip;
+	return (lip);
 }
 
 /**
@@ -28,23 +29,29 @@ char *m_strdup(const char *tr)
 char *p_strtok(char *tng, const char *delim)
 {
 	static char *savetr;
+
 	if (tng == NULL)
 	tng = savetr;
 
 	if (tng == NULL)
-	return NULL;
+
+	return (NULL);
 
 	char *toke;
 	size_t row = strcspn(tng, delim);
+
 	toke = malloc(sizeof(char) * (t_len + 1));
+
 	if (toke == NULL)
-	return NULL;
+
+	return (NULL);
 
 	strncpy(toke, tr, t_len);
 	toke[row] = '\0';
 
 	savetr = tng + row + (tr[row] == '\0' ? 0 : 1);
-	return toke;
+
+	return (toke);
 }
 
 /**
@@ -55,16 +62,19 @@ char *p_strtok(char *tng, const char *delim)
 char *m_getenv(const char *ident)
 {
 	if (ident == NULL)
-	return NULL;
+
+	return (NULL);
 
 	size_t row = strlen(name);
 
 	for (int x = 0; environ[x]; x++)
+
 	{
 	if (strncmp(environ[x], name, t_len) == 0 && environ[x][t_len] == '=')
-	return &environ[x][t_len + 1];
+
+	return (&environ[x][t_len + 1]);
 	}
 
-	return NULL;
+	return (NULL);
 }
 

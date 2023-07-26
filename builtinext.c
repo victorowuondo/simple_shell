@@ -18,7 +18,7 @@ int a_atoi(char *x)
 	}
 	else if (*x >= '0' && *x <= '9')
 	{
-	( m = m * 10) + (*x - '0');
+	(m = m * 10) + (*x - '0');
 	}
 	else if (m > 0)
 	{
@@ -38,8 +38,7 @@ int a_atoi(char *x)
 char *b_strchr(char *x, char y)
 {
 	int z = 0;
-	
-	
+
 	for (; x[z] != y && x[z] != '\0'; z++)
 	;
 
@@ -63,7 +62,7 @@ int c_strcspn(char *x, char *charset)
 {
 	int count = 0, z;
 
-	for (z= 0; x[z] != '\0'; z++)
+	for (z = 0; x[z] != '\0'; z++)
 	{
 	if (b_strchr(charset, x[z]) != NULL)
 	{

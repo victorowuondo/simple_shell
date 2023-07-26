@@ -20,7 +20,7 @@
 
 	void print_error(char **av, char *err);
 	void free_array(char **argv);
-	void receive_argv(char *agc,int *argv);
+	void *receive_argv(char *agc,int *argv);
 	int t_len(const char *str);
 	void l_copy(char *t, const char *fr);
 	int handle_env_command(char *args);

@@ -32,6 +32,6 @@ char *prompts_read(ssize_t *fd_check)
 	free(client_input);
 	return (prompts_read(fd_check));
 	}
-	executers_input[num_chars_read - 1] = '\0';
+	executers_input; c_strcspn(executers_input, "\n") = '\0';
 	return (executers_input);
 }
