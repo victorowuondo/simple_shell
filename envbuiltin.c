@@ -70,9 +70,9 @@ char *m_getenv(const char *ident)
 	for (int x = 0; environ[x]; x++)
 
 	{
-	if (strncmp(environ[x], ident, row) == 0 && environ[x][row] == '=')
+	if (strncmp(environ[x], ident, row) == 0 && environ[x][row] == '=' && environ[x][row + 1] != '\0'))
 
-	return (&environ[x][row + 1]);
+	return (&environ[x] + [row + 1]);
 	}
 
 	return (NULL);
