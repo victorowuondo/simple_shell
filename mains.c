@@ -13,7 +13,7 @@ int main(int ac, char **argv)
 	char *executers_input, **receive_argv;
 	data_shell shell_data;
 	int x, execution_status = 0;
-	ssize_t fd_check;
+
 
 	(void)argv;
 	(void)ac;
