@@ -9,15 +9,15 @@ char *prompts_read(ssize_t *fd_check)
 {
 	size_t buffer_size = 0;
 	char *client_input = NULL;
+	int num_chars_read = getline(&executers__input, &buffer_size, stdin);
 
 	if (isatty(STDIN_FILENO))
 	{
 	printf("$ ");
 	}
 
-	int num_chars_read = getline(&client_input, &buffer_size, stdin);
 
-	if (client_input == NULL)
+	if (executers_input == NULL)
 	{
 
 	if (isatty(STDIN_FILENO))
@@ -37,3 +37,4 @@ char *prompts_read(ssize_t *fd_check)
 
 	return (executers_input);
 }
+
