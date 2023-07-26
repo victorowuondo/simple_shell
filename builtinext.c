@@ -18,7 +18,7 @@ int a_atoi(char *x)
 	}
 	else if (*x >= '0' && *x <= '9')
 	{
-	(m = m * 10) + (*x - '0');
+	m = (m * 10) + (*x - '0');
 	}
 	else if (m > 0)
 	{

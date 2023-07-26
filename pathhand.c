@@ -7,7 +7,7 @@
  */
 char *get_path(char *first_command)
 {
-	char *cmd_path = m_getenv("PATH");
+	char  *cmd_path = m_getenv("PATH");
 
 	if (cmd_path == NULL || first_command == NULL)
 
