@@ -27,17 +27,17 @@ char *get_path(char *first_command)
 	p_cat(path_to_file, "/");
 	p_cat(path_to_file, first_command);
 
-	if (stat(path_to_file, &path_len) == 0)
-	{
-	free(cmd_path);
-	return (path_to_file);
-	}
+	struct stat st;
+        if (stat(path_to_file, &st) == 0) 
+        {
+            free(cmd_path);
+            return (path_to_file);
+        }
 
-	free(path_to_file);
-	parse_token = p_strtok(NULL, delimiter);
-	}
+        free(path_to_file);
+        parse_token = p_strtok(NULL, delimiter);
+    }
 
 	free(cmd_path);
 	return (NULL);
 }
-
