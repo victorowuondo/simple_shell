@@ -5,7 +5,6 @@
 */
 void free_array(char **argv)
 {
-	int num = 0;
 	char **emt = argv;
 
 
@@ -28,6 +27,8 @@ void free_array(char **argv)
   */
 int t_len(const char *str)
 {
+	int num = 0;
+
 	if (str == NULL)
 
 	return (0);
@@ -57,10 +58,12 @@ p_cat: cats the users commands
 */
 void p_cat(char *txt_ad, const char *txt)
 {
+	 int row_txt_ad = strlen(txt_ad);
+	
 	if (txt_ad == NULL || txt == NULL)
 	return;
 
-	int row_txt_ad = strlen(txt_ad);
+
 	int x = 0;
 
 	while (txt[x] != '\0')
