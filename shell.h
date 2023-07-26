@@ -51,8 +51,4 @@
 	int status;
 	} 
 	data_shell;
-
-	char **shell_data_environ; 
-
-	shell_data_environ = environ;
 #endif
