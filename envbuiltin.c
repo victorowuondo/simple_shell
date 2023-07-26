@@ -7,6 +7,9 @@
  */
 char *m_strdup(const char *tr)
 {
+	size_t row = strlen(tr);
+	size_t row = strlen(ident);
+	char *toke;
 	if (tr == NULL)
 	return (NULL);
 
@@ -37,7 +40,7 @@ char *p_strtok(char *tng, const char *delim)
 
 	return (NULL);
 
-	char *toke;
+
 	size_t row = strcspn(tng, delim);
 
 	toke = malloc(sizeof(char) * (row + 1));
@@ -64,8 +67,6 @@ char *m_getenv(const char *ident)
 	if (ident == NULL)
 
 	return (NULL);
-
-	size_t row = strlen(ident);
 
 	for (int x = 0; environ[x]; x++)
 
