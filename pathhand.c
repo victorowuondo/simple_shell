@@ -18,7 +18,7 @@ char *get_path(char *first_command)
 
 	while (parse_token != NULL)
 	{
-	int path_len = t_len(parse_token) + t_len(first_command) + 2;
+	int *path_len = t_len(parse_token) + t_len(first_command) + 2;
 	char *path_to_file = malloc(path_len);
 
 	if (path_to_file == NULL)
