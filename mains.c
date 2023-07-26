@@ -9,6 +9,7 @@
 int main(int ac, char **argv)
 {
 
+	char **tokenization(char *executers_input, char **receive_argv, ssize_t fd_check);
 	char *executers_input, **receive_argv;
 	data_shell shell_data;
 	int x, execution_status = 0;
@@ -24,7 +25,6 @@ int main(int ac, char **argv)
 	ssize_t fd_check;
 	executers_input = prompts_read(&fd_check);
 
-	char **tokenization(char *executers_input, char **receive_argv, ssize_t fd_check);
 
 	if (receive_argv[0] == NULL)
 	{
