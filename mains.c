@@ -1,68 +1,50 @@
-#include "shell.h"
-
+#include "main.h"
 /**
- * main - Shell cloned programs.
- * @ac: argument count.
- * @argv: Array pointer to string.
- * Return: 0 on success.
+ * main - shell clone
+ * @ac: argument count
+ * @argv: array of pointer to strings
+ * Return: 1 or 0
  */
 int main(int ac, char **argv)
 {
-
-	char **tokenization(char *executers_input, char **receive_argv, ssize_t fd_check);
-	char *executers_input, **receive_argv;
-	data_shell shell_data;
-	int x, execution_status = 0;
-
-
-	(void)argv;
-	(void)ac;
-
-	while (1)
-	{
-
-	char *executers_input = NULL;
+	char *user_input, **receive_argv;
 	ssize_t fd_check;
-	executers_input = prompts_read(&fd_check);
+	int i, execution_status = 0;
+	data_shell shell_data;
 
+	shell_data._environ = environ;
+	(void)ac;
+	(void)argv;
 
-	if (receive_argv[0] == NULL)
+	while (1 == 1)
 	{
-
-	free(executers_input);
-	free_array(receive_argv);
-	continue;
-	}
-
-	if (d_strcmp(receive_argv[0], "env") == 0)
-	{
-	free(executers_input);
-	_env(&shell_data);
-	free_array(receive_argv);
-	continue;
-	}
-	if (d_strcmp(receive_argv[0], "exit") == 0)
-	{
-	free(executers_input);
-	exits_shell(receive_argv, execution_status);
-	free_array(receive_argv);
-	continue;
-	}
-
-	x = handle_env_command(receive_argv);
-	if (x != 0)
-	{
-	free(executers_input);
-	free_array(receive_argv);
-	continue;
-	}
-	execution_status = execute_command(receive_argv);
-	if (execution_status == 1)
-	print_error(receive_argv, "not found\n");
-
-	free(executers_input);
-	free_array(receive_argv);
+		user_input = NULL, fd_check = 0;
+		user_input = prompt_read(&fd_check);
+		receive_argv = tokenization(user_input, receive_argv, fd_check);
+		if (receive_argv[0] == NULL)
+			continue;
+		if (_strcmp(receive_argv[0], "env") == 0)
+		{	free(user_input);
+			_env(&shell_data);
+			free_array(receive_argv);
+			continue;	}
+		if (_strcmp(receive_argv[0], "exit") == 0)
+		{	free(user_input);
+			exit_shell(receive_argv, execution_status);
+			free_array(receive_argv);
+			continue;
+		}
+		i = handle_env_commands(receive_argv);
+		if (i != 0)
+		{	free(user_input);
+			free_array(receive_argv);
+			continue;
+		}
+		execution_status = execute_command(receive_argv);
+		if (execution_status == 1)
+			print_error(receive_argv, "not found\n");
+		free(user_input);
+		free_array(receive_argv);
 	}
 	return (0);
-
 }

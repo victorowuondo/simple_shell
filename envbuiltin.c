@@ -1,82 +1,106 @@
-#include "shell.h"
+#include "main.h"
 
 /**
- * m_strdup - returns pointer to  allocated space in memory
- * @str: strings to be  copy
- * Return: pointer to  duplicate string.
+ * _strdup - returns a pointer to a newly allocated space in memory,
+ * which contains a copy of the string given as a parameter.
+ * @str: string copy to
+ * @dup: string to copy
+ * Return: pointer to the duplicated string.
  */
-char *m_strdup(const char *tr)
+char *_strdup(char *dup, char *str)
 {
-	size_t row = strlen(tr);
-	char *toke;
-	size_t row = strlen(ident);
+	int i, len;
 
-	if (tr == NULL)
+	if (str == NULL)
+		return (NULL);
 
-	return (NULL);
+	len = 0;
+	while (str[len])
+		len++;
 
-	if (ulip == NULL)
+	dup = malloc(sizeof(char) * (len + 1));
+	if (dup == NULL)
+		return (NULL);
 
-	return (NULL);
+	for (i = 0; i < len; i++)
+		dup[i] = str[i];
+	dup[i] = '\0';
 
-	strcpy(ulip, tr);
-	return (ulip);
+	return (dup);
 }
 
 /**
- * p_strtok - splits string to  series of tokens.
- * @tng: string  tokenized.
- * @delim: delimiter.
- * Return: pointer to next token.
+ * _strtok - splits a string into a series of tokens
+ * @str: string to tokenize
+ * @delim: delimiter
+ *
+ * Return: pointer to the next token, or NULL if there are no more tokens.
  */
-char *p_strtok(char *tng, const char *delim)
+char *_strtok(char *str, const char *delim)
 {
-	static char *savetr;
+	static char *saveptr;
+	char *token;
+	int i, j, len;
 
-	if (tng == NULL)
-	tng = savetr;
+	if (str == NULL)
+		str = saveptr;
 
-	if (tng == NULL)
+	if (str == NULL)
+		return (NULL);
 
-	return (NULL);
+	len = 0;
+	while (str[len])
+		len++;
 
+	token = malloc(sizeof(char) * (len + 1));
+	if (token == NULL)
+		return (NULL);
 
-	size_t row = strcspn(tng, delim);
-
-	toke = malloc(sizeof(char) * (row + 1));
-
-	if (toke == NULL)
-
-	return (NULL);
-
-	strncpy(toke, tng, row);
-	toke[row] = '\0';
-
-	savetr = tng + row + (tng[row] == '\0' ? 0 : 1);
-
-	return (toke);
-}
-
-/**
- * _getenv - looks for the environment list.
- * @name: name of variable to find.
- * Return: pointer to the environment variable.
- */
-char *m_getenv(const char *ident)
-{
-	if (ident == NULL)
-
-	return (NULL);
-
-	for (int x = 0; environ[x]; x++)
-
+	for (i = 0; str[i]; i++)
 	{
-	if (strncmp(environ[x], ident, row) == 0 && environ[x][row] != '\0' && environ[x][row + 1] == '=' )
+		for (j = 0; delim[j]; j++)
+		{
+			if (str[i] == delim[j])
+			{
+				token[i] = '\0';
+				saveptr = &str[i + 1];
+				return (token);
+			}
+		}
+		token[i] = str[i];
+	}
+	token[i] = '\0';
+	saveptr = NULL;
+	return (token);
+}
 
+/**
+ * _getenv - searches the environment list to find the environment variable
+ * @name: name of the variable to find
+ *
+ * Return: pointer to the value of the environment variable
+ */
+char *_getenv(const char *name)
+{
+	int i, j, len;
 
-	return (environ[x] + row + 1);
+	if (name == NULL)
+		return (NULL);
+
+	len = 0;
+	while (name[len])
+		len++;
+
+	for (i = 0; environ[i]; i++)
+	{
+		for (j = 0; j < len; j++)
+		{
+			if (environ[i][j] != name[j])
+				break;
+		}
+		if (j == len && environ[i][j] == '=')
+			return (&environ[i][j + 1]);
 	}
 
 	return (NULL);
 }
-
