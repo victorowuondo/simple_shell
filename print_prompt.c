@@ -30,11 +30,10 @@ char *prompts_read(ssize_t *fd_check)
 
 	if (*fd_check == 0 && isatty(STDIN_FILENO))
 	{
-	free(client_input);
+	free(executers_input);
 	return (prompts_read(fd_check));
 	}
-	size_t newline_pos = strcspn(client_input, "\n");
-	client_input[newline_pos] = '\0';
+
 
 	return (executers_input);
 }
