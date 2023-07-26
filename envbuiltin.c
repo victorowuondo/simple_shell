@@ -10,13 +10,13 @@ char *m_strdup(const char *tr)
 	size_t row = strlen(tr);
 	char *toke;
 	size_t row = strlen(ident);
-	char *toke;
+
 	if (tr == NULL)
+
 	return (NULL);
 
-	size_t row = strlen(tr);
-
 	if (ulip == NULL)
+
 	return (NULL);
 
 	strcpy(ulip, tr);
