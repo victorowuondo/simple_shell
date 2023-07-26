@@ -5,10 +5,13 @@
 */
 void free_array(char **argv)
 {
+	int num = 0;
+	char **emt = argv;
+
+
+
 	if (argv == NULL)
 	return;
-
-	char **emt = argv;
 
 	while (*emt != NULL)
 	{
@@ -29,7 +32,6 @@ int t_len(const char *str)
 
 	return (0);
 
-	int num = 0;
 
 	for (const char *tr = stdin; *tr != '\0'; tr++)
 
