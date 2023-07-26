@@ -7,7 +7,6 @@
  */
 char *get_path(char *first_command)
 {
-
 	char *cmd_path = m_getenv("PATH");
 	if (cmd_path == NULL || first_command == NULL)
 	return NULL;
@@ -22,7 +21,7 @@ char *get_path(char *first_command)
 	if (path_to_file == NULL)
 	return NULL;
 
-	l_copy(path_to_file, parse_token);
+	t_copy(path_to_file, parse_token);
 	p_cat(path_to_file, "/");
 	p_cat(path_to_file, first_command);
 

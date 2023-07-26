@@ -28,15 +28,15 @@ char *_getline(void)
 	newrow_index = position;
 	while (newrow_index < buffer_length && buffer[newrow_index] != '\n')
 	newrow_index++;
-	size_length = row_length - position;
+	size_length = rowline_index - position;
 
-	row = (char *)realloc(row, (row_length + size_length + 1) * sizeof(char));
+	row = (char *)realloc(row, (row_length + chunk_length + 1) * sizeof(char));
 	if (row == NULL)
 	return NULL;
 
-	for (size_t y = 0; y < size_length; y++)
+	for (size_t y = 0; y < chunk_length; i++)
 	row[row_length + y] = buffer[position + y];
-	row_length += size_length;
+	row_length += chunk_length;
 
 	position = newrow_index + 1;
 	if (buffer[newrow_index] == '\n')
