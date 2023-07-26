@@ -44,4 +44,12 @@
 
 	char *executers_input(void);
 
+	typedef struct data_shell
+	{
+	char **_environ;
+	int status;
+	} 
+	data_shell;
+
+
 #endif

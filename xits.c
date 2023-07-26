@@ -19,7 +19,7 @@ void exits_shell(char **input_argv, int execution_status)
 	_errputs("\n");
 	return;
 	}
-	else if (receive_argv[2] != NULL)
+	else if (input_argv[2] != NULL)
 	{
 	_errputs("$: exeeded no of arguments\n");
 	return;
