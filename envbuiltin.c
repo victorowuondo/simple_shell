@@ -17,7 +17,7 @@ char *m_strdup(const char *tr)
 	return (NULL);
 
 	strcpy(dup, tng);
-	return (lip);
+	return (ulip);
 }
 
 /**

@@ -35,7 +35,7 @@ int t_len(const char *str)
 
 	num++;
 
-	return (num0);
+	return (num);
 }
 /**
 *l_copy:copies the string
