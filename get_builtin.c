@@ -9,7 +9,7 @@ int (*get_builtin(char *cmd))(data_shell *)
 {
 	builtin_t builtin[] = {
 		{ "env", _env },
-		{ "exit", exit_shell },
+		{ "exit", exits_shell },
 		{ "setenv", _setenv },
 		{ "unsetenv", _unsetenv },
 		{ "cd", cd_shell },

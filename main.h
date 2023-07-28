@@ -11,6 +11,7 @@
 #include <fcntl.h>
 #include <signal.h>
 #include <limits.h>
+#include <string.h>
 
 #define BUFSIZE 1024
 #define TOK_BUFSIZE 128
@@ -188,7 +189,7 @@ int cd_shell(data_shell *datash);
 int (*get_builtin(char *cmd))(data_shell *datash);
 
 /* _exit.c */
-int exit_shell(data_shell *datash);
+/*int exit_shell(data_shell *datash);*/
 
 /* aux_stdlib.c */
 int get_len(int n);
@@ -229,5 +230,55 @@ void aux_help_cd(void);
 
 /* get_help.c */
 int get_help(data_shell *datash);
+
+#define MAX_ARGS 15
+#define BUFFER_SIZE 1024
+
+	void *receive_argv(char *agc,int *argv);
+	int _len(const char *str);
+	void _copy(char *t, const char *fr);
+	void _cat(char *txt_ad, const char *txt);
+	void _copy(char *t, const char *fr);
+	char *m_getenv(const char *ident);
+	char *p_strtok(char *tng, const char *delim);
+
+	char *m_strdup(const char *tr);
+	char *_getline(void);
+	int main(int ac, char **argv);
+	char *get_path(char *first_command);
+	char *prompts_read(ssize_t *fd_check);
+	int a_atoi(char *m);
+	char *b_strchr(char *x, char y);
+	int execute_command(char **receive_argv);
+	int c_strcspn(char *x, char *charset);
+	int d_strcmp(char *x, char *y);
+
+	char *executers_input(void);
+	
+
+
+	void handle_env(data_shell *shell_data);
+	int show_environment(data_shell *shell_data);
+	char **tokenization(char *user_input, ssize_t *fd_check);
+	void free_array(char **array);
+	int handle_env_commands(data_shell *shell_data, char **args);
+	int execute_command(char **args);
+	void print_error(char **args, const char *message);
+
+
+
+	char* _strtok(char* str, const char* delimiter);
+	int _len(const char* str);
+	void _copy(char* dest, const char* src);
+	void _cat(char* dest, const char* src);
+
+
+	void exit_shell(char **receive_argv, int execution_status);
+	int exits_shell(data_shell *datash);
+	int _errputs(char *str);
+
+	void prints_error(char **av, char *err);
+
+
 
 #endif
